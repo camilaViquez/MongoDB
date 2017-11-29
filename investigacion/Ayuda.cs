@@ -20,7 +20,7 @@ namespace investigacion
 
         private void cargarManual()
         {
-            PDF.src = @"C:\Users\camil\OneDrive\Documents\TEC\SegundoParcialProba.pdf";
+            PDF.src = @"C:\Users\camil\source\repos\investigacion\manual_de_usuario_resumen_de_los_partidos.pdf";
         }
 
         private void axAcroPDF1_Enter(object sender, EventArgs e)
