@@ -79,6 +79,7 @@ namespace investigacion
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+		     MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
                 }
                 
             }
