@@ -42,3 +42,4 @@ C:\Users\camil\source\repos\investigacion\investigacion\bin\Debug\AxInterop.Acro
 C:\Users\camil\source\repos\investigacion\investigacion\obj\Debug\Interop.AcroPDFLib.dll
 C:\Users\camil\source\repos\investigacion\investigacion\obj\Debug\AxInterop.AcroPDFLib.dll
 C:\Users\camil\source\repos\investigacion\investigacion\obj\Debug\investigacion.Ayuda.resources
+C:\Users\camil\source\repos\investigacion\investigacion\obj\Debug\investigacion.Borrar.resources

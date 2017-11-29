@@ -29,15 +29,24 @@ namespace investigacion
             string contrasena = textBox2.Text;
             Mongo mongo = new Mongo();
             Usuario gg = mongo.getUsuarioPorCorreo(correo);
-            if (Hash.Decrypt(gg.contrasena) == contrasena) {
-                rol = gg.rol;
-                //new buscarPartido().Show(); este es para crear resumen seguro desaparece
-                
-                SesionID.GetInstance().setValue(gg.id.ToString());
+            try
+            {
+                if (Hash.Decrypt(gg.contrasena) == contrasena)
+                {
+                    rol = gg.rol;
+                    //new buscarPartido().Show(); este es para crear resumen seguro desaparece
 
-                new comentarioUsuario().Show();
-                this.Hide();
+                    SesionID.GetInstance().setValue(gg.id.ToString());
+
+                    new comentarioUsuario().Show();
+                    this.Hide();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Debe ingresar un correo y contraseña valida");
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -49,6 +58,11 @@ namespace investigacion
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             textBox2.PasswordChar = '*';
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

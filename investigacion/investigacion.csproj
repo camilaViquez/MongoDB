@@ -67,6 +67,12 @@
     <Compile Include="Ayuda.Designer.cs">
       <DependentUpon>Ayuda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Borrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Borrar.Designer.cs">
+      <DependentUpon>Borrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="comentarioUsuario.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -125,6 +131,9 @@
     <Compile Include="Video.cs" />
     <EmbeddedResource Include="Ayuda.resx">
       <DependentUpon>Ayuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Borrar.resx">
+      <DependentUpon>Borrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="buscarPartido.resx">
       <DependentUpon>buscarPartido.cs</DependentUpon>

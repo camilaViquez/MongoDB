@@ -163,13 +163,19 @@ namespace investigacion
             }
 
             Mongo mongo = new Mongo();
-            string seleccionado = textBox1.Text;
-            string eq1 = mongo.getIdentificadorPartido(seleccionado).equipo1;
-            string eq2 = mongo.getIdentificadorPartido(seleccionado).equipo2;
-            label4.Text = (eq1 + " vs " + eq2);
-            string a = mongo.getIdentificadorPartido(seleccionado).resumen;
-            Console.WriteLine("soy a "+a);
-            textBox2.Text = (a);
+            try
+            {
+                Usuario usuario = mongo.getUsuario(SesionID.GetInstance().getValue());
+                string seleccionado = textBox1.Text;
+                string eq1 = mongo.getIdentificadorPartido(seleccionado).equipo1;
+                string eq2 = mongo.getIdentificadorPartido(seleccionado).equipo2;
+                label4.Text = (eq1 + " vs " + eq2);
+                string a = mongo.getIdentificadorPartido(seleccionado).resumen;
+                Console.WriteLine("soy a " + a);
+                textBox2.Text = (a);
+
+            
+            
 
             
 
@@ -237,10 +243,22 @@ namespace investigacion
                 //Correo del comentario
                 TextBox mail = new TextBox();
                 mail.AutoSize = false;
-                mail.Text = mongo.getUsuario(gg.comentarios[i].idUsuario).mail;
-                mail.Enabled = false;
-                mail.SetBounds(50, posy, 350, 15);
-                groupBox2.Controls.Add(mail);
+                if( usuario.disponible != false)
+                {
+                    mail.Text = mongo.getUsuario(gg.comentarios[i].idUsuario).mail;
+                    mail.Enabled = false;
+                    mail.SetBounds(50, posy, 350, 15);
+                    groupBox2.Controls.Add(mail);
+
+                }
+                else
+                {
+                    mail.Text = "BORRADO";
+                    mail.Enabled = false;
+                    mail.SetBounds(50, posy, 350, 15);
+                    groupBox2.Controls.Add(mail);
+                }
+                
                 //Agrega repuestas
                 for (var j = 0; j < gg.comentarios[i].respuestas.Count(); j++)
                 {
@@ -313,6 +331,11 @@ namespace investigacion
                 button5_Click(sender, e);
 
 
+            }
+            }
+            catch
+            {
+                MessageBox.Show("debe ingresar un id Partido valido");
             }
 
 
@@ -396,6 +419,11 @@ namespace investigacion
         {
             new principal().Show();
             this.Hide();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
