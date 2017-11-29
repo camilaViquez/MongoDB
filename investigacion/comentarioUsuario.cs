@@ -163,14 +163,19 @@ namespace investigacion
             }
 
             Mongo mongo = new Mongo();
-            Usuario usuario = mongo.getUsuario(SesionID.GetInstance().getValue());
-            string seleccionado = textBox1.Text;
-            string eq1 = mongo.getIdentificadorPartido(seleccionado).equipo1;
-            string eq2 = mongo.getIdentificadorPartido(seleccionado).equipo2;
-            label4.Text = (eq1 + " vs " + eq2);
-            string a = mongo.getIdentificadorPartido(seleccionado).resumen;
-            Console.WriteLine("soy a "+a);
-            textBox2.Text = (a);
+            try
+            {
+                Usuario usuario = mongo.getUsuario(SesionID.GetInstance().getValue());
+                string seleccionado = textBox1.Text;
+                string eq1 = mongo.getIdentificadorPartido(seleccionado).equipo1;
+                string eq2 = mongo.getIdentificadorPartido(seleccionado).equipo2;
+                label4.Text = (eq1 + " vs " + eq2);
+                string a = mongo.getIdentificadorPartido(seleccionado).resumen;
+                Console.WriteLine("soy a " + a);
+                textBox2.Text = (a);
+
+            
+            
 
             
 
@@ -326,6 +331,11 @@ namespace investigacion
                 button5_Click(sender, e);
 
 
+            }
+            }
+            catch
+            {
+                MessageBox.Show("debe ingresar un id Partido valido");
             }
 
 

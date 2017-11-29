@@ -221,15 +221,22 @@ namespace investigacion
             var query = Query.EQ("identificador", identificador);
             MongoCollection<Partido> collection = dataBase.GetCollection<Partido>("Partido");
             Partido tempPartdio = collection.FindOne(query);
-
-            tempPartdio.videos = getVid(tempPartdio.id.ToString());
-
-            for (int i = 0; i < tempPartdio.videos.Count(); i++)
+            try
             {
-                tempPartdio.videos[i].video = getVideo(tempPartdio.videos[i].videoGridFS);
+                tempPartdio.videos = getVid(tempPartdio.id.ToString());
+
+                for (int i = 0; i < tempPartdio.videos.Count(); i++)
+                {
+                    tempPartdio.videos[i].video = getVideo(tempPartdio.videos[i].videoGridFS);
+                }
+                tempPartdio.comentarios = getComentariosPartido(tempPartdio.id.ToString());
+                tempPartdio.makeData();
             }
-            tempPartdio.comentarios = getComentariosPartido(tempPartdio.id.ToString());
-            tempPartdio.makeData();
+            catch
+            {
+                MessageBox.Show("Debe ingresar un id partido valido");
+            }
+            
 
           
             
