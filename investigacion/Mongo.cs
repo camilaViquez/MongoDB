@@ -9,6 +9,7 @@ using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using System.IO;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace investigacion
 {
@@ -440,9 +441,21 @@ namespace investigacion
 
             var query = Query.EQ("mail", correo);
             MongoCollection<Usuario> collection = dataBase.GetCollection<Usuario>("Usuario");
+
+            collection.Validate();
             Usuario temp = collection.FindOne(query);
-            temp.imagen = getImage(temp.id.ToString());
-            temp.imagen.Image = getImagen(temp.imagen.imageGridFS);
+            try
+            {
+                temp.imagen = getImage(temp.id.ToString());
+                temp.imagen.Image = getImagen(temp.imagen.imageGridFS);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Debe ingresar un correo valido");
+            }
+            
+            
+            
             return temp;
 
         }

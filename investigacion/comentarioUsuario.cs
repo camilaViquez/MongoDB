@@ -163,6 +163,7 @@ namespace investigacion
             }
 
             Mongo mongo = new Mongo();
+            Usuario usuario = mongo.getUsuario(SesionID.GetInstance().getValue());
             string seleccionado = textBox1.Text;
             string eq1 = mongo.getIdentificadorPartido(seleccionado).equipo1;
             string eq2 = mongo.getIdentificadorPartido(seleccionado).equipo2;
@@ -237,10 +238,22 @@ namespace investigacion
                 //Correo del comentario
                 TextBox mail = new TextBox();
                 mail.AutoSize = false;
-                mail.Text = mongo.getUsuario(gg.comentarios[i].idUsuario).mail;
-                mail.Enabled = false;
-                mail.SetBounds(50, posy, 350, 15);
-                groupBox2.Controls.Add(mail);
+                if( usuario.disponible != false)
+                {
+                    mail.Text = mongo.getUsuario(gg.comentarios[i].idUsuario).mail;
+                    mail.Enabled = false;
+                    mail.SetBounds(50, posy, 350, 15);
+                    groupBox2.Controls.Add(mail);
+
+                }
+                else
+                {
+                    mail.Text = "BORRADO";
+                    mail.Enabled = false;
+                    mail.SetBounds(50, posy, 350, 15);
+                    groupBox2.Controls.Add(mail);
+                }
+                
                 //Agrega repuestas
                 for (var j = 0; j < gg.comentarios[i].respuestas.Count(); j++)
                 {
@@ -396,6 +409,11 @@ namespace investigacion
         {
             new principal().Show();
             this.Hide();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
