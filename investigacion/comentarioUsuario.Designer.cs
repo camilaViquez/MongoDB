@@ -46,6 +46,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -210,12 +211,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(29, 548);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(85, 26);
+            this.button6.TabIndex = 19;
+            this.button6.Text = "Regresar";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // comentarioUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1589, 586);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.axWindowsMediaPlayer1);
@@ -261,5 +273,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button6;
     }
 }

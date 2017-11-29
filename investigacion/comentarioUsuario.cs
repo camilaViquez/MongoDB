@@ -71,6 +71,8 @@ namespace investigacion
                 button4.Enabled = true;
                 button4.Visible = true;
                 textBox2.Enabled = true;
+                textBox4.Enabled = false;
+                button3.Enabled = false;
             }
             else
             {
@@ -388,6 +390,12 @@ namespace investigacion
         {
             string text = textBox2.Text;
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            new principal().Show();
+            this.Hide();
         }
     }
 }

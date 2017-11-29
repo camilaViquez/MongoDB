@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ayuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ayuda.Designer.cs">
+      <DependentUpon>Ayuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="comentarioUsuario.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -117,6 +123,9 @@
     <Compile Include="SesionRol.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Video.cs" />
+    <EmbeddedResource Include="Ayuda.resx">
+      <DependentUpon>Ayuda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="buscarPartido.resx">
       <DependentUpon>buscarPartido.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +171,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
     <COMReference Include="AxWMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
       <VersionMajor>1</VersionMajor>
